@@ -14,4 +14,9 @@ public class CartItemService implements ICartItemService {
     public List<CartItem> getAllCartItemByCartId(int cartId) {
         return cartItemDAO.getAllCartItemByCartId(cartId);
     }
+
+    @Override
+    public void deleteCartItemById(int cartItemId) {
+        cartItemDAO.deleteCartItemById(cartItemId);
+    }
 }

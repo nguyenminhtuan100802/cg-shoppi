@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface ICartItemDAO {
     List<CartItem> getAllCartItemByCartId(int cartId);
+    void deleteCartItemById(int cartItemId);
 }

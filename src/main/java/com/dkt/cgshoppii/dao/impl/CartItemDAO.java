@@ -25,9 +25,10 @@ public class CartItemDAO implements ICartItemDAO {
                 while (resultSet.next()) {
                     int cartItemId = resultSet.getInt("cart_id");
                     if (cartItemId == cartId) {
+                        int id = resultSet.getInt("id");
                         int productId = resultSet.getInt("product_id");
                         int quantity = resultSet.getInt("quantity");
-                        cartItems.add(new CartItem(quantity, productId));
+                        cartItems.add(new CartItem(id , quantity, productId));
                     }
                 }
             } catch (SQLException e) {
@@ -35,5 +36,19 @@ public class CartItemDAO implements ICartItemDAO {
             }
         }
         return cartItems;
+    }
+
+    @Override
+    public void deleteCartItemById(int cartItemId) {
+        Connection connection = JDBCConnection.getConnection();
+        if (connection != null) {
+            try {
+                PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM cart_items WHERE id = ?;");
+                preparedStatement.setInt(1, cartItemId);
+                preparedStatement.executeUpdate();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 }
