@@ -8,6 +8,12 @@ import java.util.List;
 public class ProductService implements IProductService {
     private ProductDao productDao = new ProductDao();
 
+
+    @Override
+    public Product getProductById(int productId) {
+        return null;
+    }
+
     @Override
     public List<Product> findAll() {
         return  productDao.findAll();

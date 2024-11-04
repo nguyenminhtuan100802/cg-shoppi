@@ -11,9 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductDao {
-    private Connection connection;
-
-
     public List<Product> findAll() {
         List<Product> products = new ArrayList<>();
         Connection connection = JDBCConnection.getConnection();

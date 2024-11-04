@@ -20,7 +20,7 @@
     <title>Product List</title>
 </head>
 <body>
-<form action="product?action=search" method="get">
+<form action="${pageContext.request.contextPath}/product?action=search" method="get">
     <label>
         <input type="text" name="searchByName" placeholder="Nhập ten sản phẩm">
         <input type="submit" value="timKiem">
@@ -41,7 +41,7 @@
             <td>${product.description}</td>
             <td>${product.price}</td>
             <td>${product.inventoryQuantity}</td>
-            <td><a href="product?action=add-cart&cart-id=1&product-id=${product.id}">Them vao gio</a></td>
+            <td><a href="${pageContext.request.contextPath}/product?action=add-cart&cart-id=1&product-id=${product.id}">Them vao gio</a></td>
 
         </tr>
     </c:forEach>
