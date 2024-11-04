@@ -4,7 +4,7 @@ import com.dkt.cgshoppii.model.entity.CartItem;
 import com.dkt.cgshoppii.model.entity.Product;
 import com.dkt.cgshoppii.service.ICartItemService;
 import com.dkt.cgshoppii.service.IProductService;
-import com.dkt.cgshoppii.service.ProductService;
+import com.dkt.cgshoppii.service.impl.ProductService;
 import com.dkt.cgshoppii.service.impl.CartItemService;
 
 import javax.servlet.RequestDispatcher;
@@ -38,10 +38,10 @@ public class CartController extends HttpServlet {
             case "delete-cart-item":
                 int cartItemId = Integer.parseInt(request.getParameter("id"));
                 cartItemService.deleteCartItemById(cartItemId);
-                cartItems = cartItemService.getAllCartItemByCartId(cartId);
+                cartItems = cartItemService.findAllCartItemByCartId(cartId);
                 products = new ArrayList<>();
                 for (CartItem cartItem : cartItems) {
-                    products.add(productService.getProductById(cartItem.getProductId()));
+                    products.add(productService.findProductById(cartItem.getProductId()));
                 }
                 request.setAttribute("cartItems", cartItems);
                 request.setAttribute("products", products);
@@ -50,11 +50,11 @@ public class CartController extends HttpServlet {
                 requestDispatcher.forward(request, response);
                 break;
             default:
-                allProducts = productService.findAll();
-                cartItems = cartItemService.getAllCartItemByCartId(cartId);
+                allProducts = productService.findAllProducts();
+                cartItems = cartItemService.findAllCartItemByCartId(cartId);
                 products = new ArrayList<>();
                 for (CartItem cartItem : cartItems) {
-                    products.add(productService.getProductById(cartItem.getProductId()));
+                    products.add(productService.findProductById(cartItem.getProductId()));
                 }
                 request.setAttribute("allProducts", allProducts);
                 request.setAttribute("cartItems", cartItems);

@@ -1,8 +1,8 @@
 package com.dkt.cgshoppii.controller;
 
-import com.dkt.cgshoppii.dao.CartItemDAO;
+import com.dkt.cgshoppii.dao.impl.CartItemDAO;
 import com.dkt.cgshoppii.model.entity.Product;
-import com.dkt.cgshoppii.service.ProductService;
+import com.dkt.cgshoppii.service.impl.ProductService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -28,7 +28,7 @@ public class ProductController extends HttpServlet {
         }
         switch (action) {
             case "search":
-                products = productService.findByName(request.getParameter("searchByName"));
+                products = productService.findProductByName(request.getParameter("searchByName"));
                 request.setAttribute("products", products);
                 dispatcher = request.getRequestDispatcher("WEB-INF/view/product/productList.jsp");
                 dispatcher.forward(request, response);
@@ -41,27 +41,11 @@ public class ProductController extends HttpServlet {
                 dispatcher.forward(request, response);
                 break;
             default:
-                products = productService.findAll();
+                products = productService.findAllProducts();
                 request.setAttribute("products", products);
                 dispatcher = request.getRequestDispatcher("WEB-INF/view/product/productList.jsp");
                 dispatcher.forward(request, response);
 
         }
-//        List < Product> products = productService.findAll();
-
-
-
-
-//        if ("viewProduct".equals(action)) {
-//            int productId = Integer.parseInt(request.getParameter("productId"));
-//            request.setAttribute("product", productService.getProductById(productId));
-//            request.getRequestDispatcher("/product/viewProduct.jsp").forward(request, response);
-//        } else if ("viewTopProducts".equals(action)) {
-//            request.setAttribute("topProducts", productService.getTopSellingProducts());
-//            request.getRequestDispatcher("/product/topProducts.jsp").forward(request, response);
-//        } else {
-//            request.setAttribute("newProducts", productService.getNewProducts());
-//            request.getRequestDispatcher("/product/newProducts.jsp").forward(request, response);
-//        }
     }
 }

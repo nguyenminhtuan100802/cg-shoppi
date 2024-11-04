@@ -6,13 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%--<%@ page import="java.util.List, model.Product, service.ProductService" %>--%>
-<%--<%--%>
-<%--    ProductService productService = new ProductService();--%>
-<%--    List<Product> productList = productService.getAllProducts();--%>
-<%--%>--%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,12 +15,12 @@
     <title>Product List</title>
 </head>
 <body>
-<form action="${pageContext.request.contextPath}/product?action=search" method="get">
+<form action="/product" method="get">
+    <input type="hidden" name="action" value="search">
     <label>
-        <input type="text" name="searchByName" placeholder="Nhập ten sản phẩm">
-        <input type="submit" value="timKiem">
+        <input type="text" name="searchByName" placeholder="Nhập tên sản phẩm">
     </label>
-
+    <input type="submit" value="Tìm Kiếm">
 </form>
 <h2>Product List</h2>
 <table border="1">
@@ -41,34 +36,11 @@
             <td>${product.description}</td>
             <td>${product.price}</td>
             <td>${product.inventoryQuantity}</td>
-            <td><a href="${pageContext.request.contextPath}/product?action=add-cart&cart-id=1&product-id=${product.id}">Them vao gio</a></td>
+            <td><a href="${pageContext.request.contextPath}/product?action=add-cart&cart-id=1&product-id=${product.id}">Them
+                vao gio</a></td>
 
         </tr>
     </c:forEach>
-
-<%--    <%--%>
-<%--        for (Product product : productList) {--%>
-<%--    %>--%>
-<%--    <tr>--%>
-<%--        <td><%= product.getId() %></td>--%>
-<%--        <td><%= product.getName() %></td>--%>
-<%--        <td><%= product.getDescription() %></td>--%>
-<%--        <td><%= product.getPrice() %></td>--%>
-<%--        <td>--%>
-<%--            <form action="AdminController" method="POST">--%>
-<%--                <input type="hidden" name="action" value="deleteProduct"/>--%>
-<%--                <input type="hidden" name="productId" value="<%= product.getId() %>"/>--%>
-<%--                <button type="submit">Delete</button>--%>
-<%--            </form>--%>
-<%--            <form action="AdminController" method="GET" action="editProduct.jsp">--%>
-<%--                <input type="hidden" name="productId" value="<%= product.getId() %>"/>--%>
-<%--                <button type="submit">Edit</button>--%>
-<%--            </form>--%>
-<%--        </td>--%>
-<%--    </tr>--%>
-<%--    <%--%>
-<%--        }--%>
-<%--    %>--%>
 </table>
 </body>
 </html>
