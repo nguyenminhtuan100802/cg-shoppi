@@ -4,8 +4,8 @@ import com.dkt.cgshoppii.model.entity.CartItem;
 import com.dkt.cgshoppii.model.entity.Product;
 import com.dkt.cgshoppii.service.ICartItemService;
 import com.dkt.cgshoppii.service.IProductService;
+import com.dkt.cgshoppii.service.ProductService;
 import com.dkt.cgshoppii.service.impl.CartItemService;
-import com.dkt.cgshoppii.service.impl.ProductService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -50,7 +50,7 @@ public class CartController extends HttpServlet {
                 requestDispatcher.forward(request, response);
                 break;
             default:
-                allProducts = productService.getAllProducts();
+                allProducts = productService.findAll();
                 cartItems = cartItemService.getAllCartItemByCartId(cartId);
                 products = new ArrayList<>();
                 for (CartItem cartItem : cartItems) {

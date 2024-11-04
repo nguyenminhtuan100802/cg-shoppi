@@ -37,6 +37,14 @@ public class Product {
         this.createdAt = createdAt;
     }
 
+    public Product(int id, String name, String description, double price, int inventoryQuantity) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.inventoryQuantity = inventoryQuantity;
+    }
+
     public int getId() {
         return id;
     }
