@@ -13,6 +13,11 @@ public class Product {
 
     public Product () {}
 
+    public Product(String name, double price){
+        this.name = name;
+        this.price = price;
+    }
+
     public Product(String name, String description, double price, int inventoryQuantity, String status, LocalDateTime createdAt) {
         this.name = name;
         this.description = description;
