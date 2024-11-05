@@ -46,6 +46,14 @@ public class User {
         this.orders = orders;
     }
 
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
+    public User(int id, String username, String password, String role, String fullName, String phone, String email, String address, Object cart, Object orders) {
+    }
+
     public int getId() {
         return id;
     }
