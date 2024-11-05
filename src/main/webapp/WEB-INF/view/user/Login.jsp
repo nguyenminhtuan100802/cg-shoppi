@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: DELL
-  Date: 11/1/2024
-  Time: 1:50 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -92,10 +85,24 @@
       text-decoration: underline;
     }
   </style>
+
+  <script>
+    // Function to display alert for error messages
+    function showAlert(message) {
+      alert(message);
+    }
+  </script>
 </head>
 <body>
 <div id="loginContainer">
   <h2>Login to Shopee</h2>
+
+  <%-- Check for the message attribute and display alert if it exists --%>
+  <% String message = (String) request.getAttribute("message"); %>
+  <% if (message != null) { %>
+  <script>showAlert("<%= message %>");</script>
+  <% } %>
+
   <form id="loginForm" action="login" method="post">
     <label for="username">Username</label>
     <input type="text" id="username" name="username" required>
@@ -106,10 +113,10 @@
     <button type="submit">Login</button>
   </form>
 
-  <div id="footerLinks">
-    <p>Don’t have an account? <a href="register">Sign Up</a></p>
-    <p><a href="#">Forgot Password?</a></p>
-  </div>
+<%--  <div id="footerLinks">--%>
+<%--    <p>Don’t have an account? <a href="register">Sign Up</a></p>--%>
+<%--    <p><a href="#">Forgot Password?</a></p>--%>
+<%--  </div>--%>
 </div>
 </body>
 </html>

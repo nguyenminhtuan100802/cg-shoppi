@@ -33,7 +33,7 @@ public class LoginServlet extends HttpServlet {
         for (User user : users) {
             if (username.equals(user.getUsername()) && password.equals(user.getPassword())) {
                 message = "Login successful!";
-                request.setAttribute("message", message); // Set the success message
+                request.setAttribute("username", user.getUsername()); // Set the success message
                 request.getRequestDispatcher("WEB-INF/view/product/productList.jsp").forward(request, response);
                 return; // Exit after successful login
             }
