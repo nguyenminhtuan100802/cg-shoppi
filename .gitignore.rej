@@ -1,0 +1,11 @@
+diff a/.gitignore b/.gitignore	(rejected hunks)
+@@ -40,4 +40,6 @@
+ .vscode/
+ 
+ ### Mac OS ###
+-.DS_Store
+\ No newline at end of file
++.DS_Store
++
++src/main/java/com/dkt/cgshoppii/connection/JDBCConnection.java
+\ No newline at end of file
