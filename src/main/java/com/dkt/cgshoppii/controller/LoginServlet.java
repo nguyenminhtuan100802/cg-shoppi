@@ -1,6 +1,5 @@
 package com.dkt.cgshoppii.controller;
 
-import com.dkt.cgshoppii.model.entity.User;
 import com.dkt.cgshoppii.service.IUserService;
 import com.dkt.cgshoppii.service.UserService;
 
