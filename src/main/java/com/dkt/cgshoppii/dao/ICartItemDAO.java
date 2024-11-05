@@ -7,6 +7,7 @@ import com.dkt.cgshoppii.model.entity.Product;
 import java.util.List;
 
 public interface ICartItemDAO {
-    List<CartItem> getAllCartItemByCartId(int cartId);
+    List<CartItem> findAllCartItemByCartId(int cartId);
+    void addCartItem(int cartId, int productId);
     void deleteCartItemById(int cartItemId);
 }

@@ -8,15 +8,22 @@ import com.dkt.cgshoppii.service.IProductService;
 import java.util.List;
 
 public class ProductService implements IProductService {
-    IProductDAO productDAO = new ProductDAO();
+    private IProductDAO productDAO = new ProductDAO();
+
 
     @Override
-    public List<Product> getAllProducts() {
-        return productDAO.getAllProducts();
+    public List<Product> findAllProducts() {
+        return productDAO.findAllProducts();
     }
 
     @Override
-    public Product getProductById(int productId) {
-        return productDAO.getProductById(productId);
+    public Product findProductById(int productId) {
+        return productDAO.findProductById(productId);
     }
+
+    @Override
+    public List<Product> findProductByName(String name) {
+        return productDAO.findProductByName(name);
+    }
+
 }
