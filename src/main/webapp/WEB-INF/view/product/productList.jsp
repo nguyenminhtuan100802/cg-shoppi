@@ -219,8 +219,6 @@
             <td>${product.description}</td>
             <td>${product.price} VND</td>
             <td>${product.inventoryQuantity}</td>
-            <td><a href="${pageContext.request.contextPath}/product?action=add-cart&username=${username}&product-id=${product.id}">Them
-                vao gio</a></td>
             <td>
                 <a class="add-to-cart-btn" href="${pageContext.request.contextPath}/product?action=add-cart&username=${username}&product-id=${product.id}">
                     Thêm vào giỏ

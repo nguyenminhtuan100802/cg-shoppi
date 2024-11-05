@@ -50,6 +50,7 @@ public class CartController extends HttpServlet {
                 for (CartItem cartItem : cartItems) {
                     products.add(productService.findProductById(cartItem.getProductId()));
                 }
+                request.setAttribute("allProducts", allProducts);
                 request.setAttribute("cartItems", cartItems);
                 request.setAttribute("products", products);
                 requestDispatcher = request.getRequestDispatcher("WEB-INF/view/cart/Cart.jsp");

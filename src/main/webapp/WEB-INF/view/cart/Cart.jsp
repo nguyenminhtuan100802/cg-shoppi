@@ -233,7 +233,7 @@
 <script type="text/javascript">
     function confirmDelete(cartItemId) {
         if (confirm("Bạn có chắc chắn muốn xóa sản phẩm này không?")) {
-            window.location.href = `${pageContext.request.contextPath}/cart?action=delete-cart-item&id=` + cartItemId;
+            window.location.href = `${pageContext.request.contextPath}/cart?action=delete-cart-item&username=${username}&id=` + cartItemId;
         }
     }
     function updateTotal() {
