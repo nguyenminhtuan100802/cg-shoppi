@@ -23,6 +23,7 @@ public class CartItemService implements ICartItemService {
 
     @Override
     public void deleteCartItemById(int cartItemId) {
+        cartItemDAO.deleteCartItemById(cartItemId);
 
     }
 }
