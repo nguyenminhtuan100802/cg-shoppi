@@ -184,10 +184,10 @@
 <div class="header">
     <h1>CG-Shoppii</h1>
     <div class="navbar">
-        <a href="/">Trang chủ</a>
+        <a href="/product?username=${username}">Trang chủ</a>
         <a href="/about">Giới thiệu</a>
         <a href="/contact">Liên hệ</a>
-        <a href="/user/login">Tuấn</a>
+        <a href="/user/login">${username}</a>
     </div>
 </div>
 
@@ -200,7 +200,7 @@
         </label>
         <input type="submit" value="Tìm Kiếm">
     </form>
-    <a class="cart-link" href="http://localhost:8080/cart">🛒 Giỏ hàng</a>
+    <a class="cart-link" href="/cart?username=${username}">🛒 Giỏ hàng</a>
 </div>
 
 <!-- Product List -->
@@ -222,7 +222,7 @@
             <td><a href="${pageContext.request.contextPath}/product?action=add-cart&username=${username}&product-id=${product.id}">Them
                 vao gio</a></td>
             <td>
-                <a class="add-to-cart-btn" href="${pageContext.request.contextPath}/product?action=add-cart&cart-id=1&product-id=${product.id}">
+                <a class="add-to-cart-btn" href="${pageContext.request.contextPath}/product?action=add-cart&username=${username}&product-id=${product.id}">
                     Thêm vào giỏ
                 </a>
             </td>

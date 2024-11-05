@@ -148,7 +148,7 @@
                 <div>Thông Báo</div>
                 <div>Hỗ Trợ</div>
                 <div>Tiếng Việt</div>
-                <div>Tài Khoản</div>
+                <div>${username}</div>
             </div>
         </div>
         <div id="header-below">

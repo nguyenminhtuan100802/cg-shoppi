@@ -6,20 +6,20 @@ import java.util.List;
 public class Cart {
     private int id;
     private LocalDateTime createdAt;
-    private User user;
+    private int userId;
     private List<CartItem> cartItems;
 
    public Cart () {}
 
-    public Cart(LocalDateTime createdAt, User user) {
+    public Cart(LocalDateTime createdAt, int userId) {
         this.createdAt = createdAt;
-        this.user = user;
+        this.userId = userId;
     }
 
-    public Cart(int id, LocalDateTime createdAt, User user) {
+    public Cart(int id, LocalDateTime createdAt, int userId) {
         this.id = id;
         this.createdAt = createdAt;
-        this.user = user;
+        this.userId = userId;
     }
 
     public int getId() {
@@ -38,11 +38,19 @@ public class Cart {
         this.createdAt = createdAt;
     }
 
-    public User getUser() {
-        return user;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public List<CartItem> getCartItems() {
+        return cartItems;
+    }
+
+    public void setCartItems(List<CartItem> cartItems) {
+        this.cartItems = cartItems;
     }
 }
