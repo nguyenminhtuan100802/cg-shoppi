@@ -5,8 +5,8 @@ import com.dkt.cgshoppii.model.entity.Product;
 import java.util.List;
 
 public interface IProductService {
-    Product getProductById(int productId);
-    public List<Product> findAll();
-    public List<Product> findByName(String name);
+    List<Product> findAllProducts();
+    Product findProductById(int productId);
+    List<Product> findProductByName(String name);
 
 }

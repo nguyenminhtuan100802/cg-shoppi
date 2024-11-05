@@ -10,13 +10,19 @@ import java.util.List;
 public class CartItemService implements ICartItemService {
     ICartItemDAO cartItemDAO = new CartItemDAO();
 
+
     @Override
-    public List<CartItem> getAllCartItemByCartId(int cartId) {
-        return cartItemDAO.getAllCartItemByCartId(cartId);
+    public List<CartItem> findAllCartItemByCartId(int cartId) {
+        return cartItemDAO.findAllCartItemByCartId(cartId);
+    }
+
+    @Override
+    public void addCartItem(int cartId, int productId) {
+        cartItemDAO.addCartItem(cartId, productId);
     }
 
     @Override
     public void deleteCartItemById(int cartItemId) {
-        cartItemDAO.deleteCartItemById(cartItemId);
+
     }
 }
