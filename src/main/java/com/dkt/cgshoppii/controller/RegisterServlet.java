@@ -42,11 +42,11 @@ public class RegisterServlet extends HttpServlet {
             if (existingUser.isPresent()) {
                 message = "Username already exists! Please choose another.";
             } else {
-                // Create a new user with hashed password
+                // Create a new user with hashed password and role
                 User newUser = new User();
                 newUser.setUsername(username);
                 newUser.setPassword(BCrypt.hashpw(password, BCrypt.gensalt())); // Hash the password
-                newUser.setRole(role); // Set the role
+                newUser.setRole(role); // Set the role (User, Admin, or None)
 
                 // Register the user
                 userService.registerUser(newUser); // Ensure this method is implemented

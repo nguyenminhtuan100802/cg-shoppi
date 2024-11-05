@@ -1,29 +1,20 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: DELL
-  Date: 11/1/2024
-  Time: 1:50 PM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Register</title>
-</head>
-<body>
-<h2>Register</h2>
-<form action="registerServlet" method="post">
+<form action="${pageContext.request.contextPath}/register" method="post">
   <label for="username">Username:</label>
-  <input type="text" id="username" name="username" required><br><br>
+  <input type="text" id="username" name="username" required>
 
   <label for="password">Password:</label>
-  <input type="password" id="password" name="password" required><br><br>
+  <input type="password" id="password" name="password" required>
 
-  <label for="email">Email:</label>
-  <input type="email" id="email" name="email" required><br><br>
+  <label for="role">Role:</label>
+  <select id="role" name="role">
+    <option value="User">User</option>
+    <option value="Admin" style="display: none;">Admin</option> <!-- Hide this option -->
+    <option value="None">None</option> <!-- Add this option -->
+  </select>
 
   <button type="submit">Register</button>
 </form>
 
-</body>
-</html>
+<c:if test="${not empty message}">
+  <div>${message}</div>
+</c:if>
