@@ -27,10 +27,12 @@ public class LoginServlet extends HttpServlet {
         String message;
 
         // Validate login credentials (simple example)
-        if ("user".equals(username) && "pass".equals(password)) {
+        if (username.equals("admin") && password.equals("admin")) {
             message = "Login successful!";
+            request.getRequestDispatcher("WEB-INF/view/product/productList.jsp").forward(request, response);
         } else {
             message = "Invalid credentials!";
+            request.getRequestDispatcher("WEB-INF/view/user/Login.jsp").forward(request, response);
         }
 
         request.setAttribute("message", message);
