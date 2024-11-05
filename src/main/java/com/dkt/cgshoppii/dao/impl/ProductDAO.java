@@ -23,9 +23,12 @@ public class ProductDAO implements IProductDAO {
                 ResultSet resultSet = preparedStatement.executeQuery();
                 products = new ArrayList<>();
                 while (resultSet.next()) {
-                    String name = resultSet.getString("name");
+                    int id = resultSet.getInt("id");
+                    String productName = resultSet.getString("name");
+                    String description = resultSet.getString("description");
                     double price = resultSet.getDouble("price");
-                    products.add(new Product(name, price));
+                    int inventory_quantity = resultSet.getInt("inventory_quantity");
+                    products.add(new Product(id, productName, description, price, inventory_quantity));
                 }
             } catch (SQLException e) {
                 throw new RuntimeException(e);

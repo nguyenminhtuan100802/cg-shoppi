@@ -37,6 +37,9 @@ public class ProductController extends HttpServlet {
                 int cartId = Integer.parseInt(request.getParameter("cart-id"));
                 int productId = Integer.parseInt(request.getParameter("product-id"));
                 cartItemDAO.addCartItem(cartId, productId);
+
+                products = productService.findAllProducts();
+                request.setAttribute("products", products);
                 dispatcher = request.getRequestDispatcher("WEB-INF/view/product/productList.jsp");
                 dispatcher.forward(request, response);
                 break;
