@@ -36,9 +36,8 @@
             <td>${product.description}</td>
             <td>${product.price}</td>
             <td>${product.inventoryQuantity}</td>
-            <td><a href="${pageContext.request.contextPath}/product?action=add-cart&cart-id=1&product-id=${product.id}">Them
+            <td><a href="${pageContext.request.contextPath}/product?action=add-cart&username=${username}&product-id=${product.id}">Them
                 vao gio</a></td>
-
         </tr>
     </c:forEach>
 </table>
